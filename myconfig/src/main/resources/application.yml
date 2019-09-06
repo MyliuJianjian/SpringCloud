@@ -1,0 +1,20 @@
+server:
+    port: 8040 #8181
+spring:
+    application:
+        name: myconfig
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/MyliuJianjian/SpringCloud.git
+                    username: 1075125776@qq.com
+                    password: My121010
+                    search-paths: config-repo
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://user:123456@localhost:8761/eureka  #注册 中心已经开启认证
+    instance:
+        prefer-ip-address: true
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
