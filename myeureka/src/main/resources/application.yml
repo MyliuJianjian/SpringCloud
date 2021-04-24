@@ -1,5 +1,8 @@
 server:
-    port: 8761 #端口
+    port: 9000 #端口
+spring:
+    application:
+        name: myeureka
 
 security:
     basic:
@@ -15,11 +18,4 @@ eureka:
         registerWithEureka: false #关闭自我注册
         fetchRegistry: false
         serviceUrl:
-            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
-#这里的配置表示，访问/it/** 直接重定向到http://www.ityouknow.com/**
-zuul:
-   routes:
-       baidu:
-           path: /myserver/demo/**
-           url: http://127.0.0.1:8090/myserver/demo/
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/myeureka/
